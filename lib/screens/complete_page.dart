@@ -85,12 +85,12 @@ class _State extends State<CompletePage> {
                             text:
                                 'Your account registration \n is now complete!',
                             fontSize: 25.0,
-                            fontWeight: FontWeight.w500),
+                            fontWeight: FontWeight.bold),
                         SizedBox(height: 20),
                         defaultText(
                             text:
                                 'you have now successfully registered for \n the portal.\n \n start adding bags and trips to begin your \n adventure.',
-                            fontSize: 15,
+                            fontSize: 16,
                             fontWeight: FontWeight.w400),
                       ],
                     ),

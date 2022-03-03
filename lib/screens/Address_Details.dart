@@ -1,14 +1,22 @@
 // ignore_for_file: file_names, camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, must_be_immutable, unused_element
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../shared_components.dart';
 
 import 'Attachments.dart';
 
-class AddressDetails extends StatelessWidget {
+class AddressDetails extends StatefulWidget {
+  AddressDetails({Key? key}) : super(key: key);
+
+  @override
+  State<AddressDetails> createState() => _AddressDetailsState();
+}
+
+class _AddressDetailsState extends State<AddressDetails> {
   var formKey2 = GlobalKey<FormState>();
 
-  AddressDetails({Key? key}) : super(key: key);
+  dynamic dropdownValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +83,39 @@ class AddressDetails extends StatelessWidget {
                                 children: [
                                   defaultText(
                                       text: 'Country',
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w500),
                                   SizedBox(height: 5.0),
-                                  defaultTextFormField(
-                                    hint: 'egypt',
-                                    hintColor: Colors.black,
-                                    suffix: Icons.keyboard_arrow_down_rounded,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 1, color: Colors.grey)),
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 5),
+                                    child: DropdownButton(
+                                      iconEnabledColor:
+                                          Colors.pink.withOpacity(0.7),
+                                      iconDisabledColor:
+                                          Colors.pink.withOpacity(0.7),
+                                      iconSize: 30,
+                                      style: TextStyle(
+                                          // fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                          fontSize: 18),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          dropdownValue = newValue;
+                                        });
+                                      },
+                                      value: dropdownValue,
+                                      isExpanded: true,
+                                      items: [
+                                        DropdownMenuItem(
+                                          child: Text('egypt'),
+                                          value: 0,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
@@ -93,12 +128,40 @@ class AddressDetails extends StatelessWidget {
                                   defaultText(
                                       text: 'City',
                                       fontWeight: FontWeight.w500),
-                                  SizedBox(height: 10.0),
-                                  defaultTextFormField(
-                                      hint: 'cairo',
-                                      hintColor: Colors.black,
-                                      suffix:
-                                          Icons.keyboard_arrow_down_rounded),
+                                  SizedBox(height: 5.0),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            width: 1, color: Colors.grey)),
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 5),
+                                    child: DropdownButton(
+                                      iconEnabledColor:
+                                          Colors.pink.withOpacity(0.7),
+                                      iconDisabledColor:
+                                          Colors.pink.withOpacity(0.7),
+                                      iconSize: 30,
+                                      style: TextStyle(
+                                          // fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                          fontSize: 18),
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          dropdownValue = newValue;
+                                        });
+                                      },
+                                      value: dropdownValue,
+                                      isExpanded: true,
+                                      underline: null,
+                                      isDense: false,
+                                      items: [
+                                        DropdownMenuItem(
+                                          child: Text('cairo'),
+                                          value: 0,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -107,10 +170,33 @@ class AddressDetails extends StatelessWidget {
                         SizedBox(height: 10.0),
                         defaultText(text: 'State', fontWeight: FontWeight.w500),
                         SizedBox(height: 10.0),
-                        defaultTextFormField(
-                            hint: 'egypt',
-                            hintColor: Colors.black,
-                            suffix: Icons.keyboard_arrow_down_rounded),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1, color: Colors.grey)),
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: DropdownButton(
+                            iconEnabledColor: Colors.pink.withOpacity(0.7),
+                            iconDisabledColor: Colors.pink.withOpacity(0.7),
+                            iconSize: 30,
+                            style: TextStyle(
+                                // fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                                fontSize: 18),
+                            onChanged: (newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                              });
+                            },
+                            value: dropdownValue,
+                            isExpanded: true,
+                            items: [
+                              DropdownMenuItem(
+                                child: Text('egypt'),
+                                value: 0,
+                              ),
+                            ],
+                          ),
+                        ),
                         SizedBox(height: 10.0),
                         defaultText(
                             text: 'Street', fontWeight: FontWeight.w500),

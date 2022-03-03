@@ -1,8 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_void_to_null
 import 'package:flutter/material.dart';
-import 'screens/Attachments.dart';
-
-// import 'complete_page.dart';
+import 'screens/Personal_Details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       //theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: Attachments(),
+      home: PersonalDetails(),
     );
   }
 }

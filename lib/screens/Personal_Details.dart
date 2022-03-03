@@ -87,14 +87,15 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             alignment: Alignment.bottomRight,
                             children: [
                               CircleAvatar(
-                                backgroundColor: Colors.grey.withOpacity(0.1),
+                                backgroundColor: Colors.grey.withOpacity(0.7),
                                 radius: 60.0,
+                                backgroundImage: profileImage == null
+                                    ? null
+                                    : FileImage(profileImage!),
                               ),
                               InkWell(
                                 onTap: () async {
-                                  setState(() {
-                                    getProfileImage();
-                                  });
+                                  await getProfileImage();
                                 },
                                 child: CircleAvatar(
                                   child: Icon(
@@ -104,11 +105,6 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                                   ),
                                   radius: 20.0,
                                   backgroundColor: Colors.pink.withOpacity(0.7),
-                                  backgroundImage: profileImage == null
-                                      ? const NetworkImage(
-                                              'https://fedoramagazine.org/wp-content/uploads/2017/05/f23.png-768x480.jpg')
-                                          as ImageProvider
-                                      : FileImage(profileImage!),
                                 ),
                               ),
                             ],
