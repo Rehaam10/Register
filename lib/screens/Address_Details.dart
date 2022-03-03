@@ -13,114 +13,134 @@ class AddressDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-        ),
-        title: defaultText(
-          text: 'Register',
-          fontSize: 30.0,
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            defaultText(
-              text: 'Address Details',
-              fontSize: 20.0,
-            ),
-            SizedBox(height: 20.0),
-            Row(
-              children: [
-                defaultDivider(color: Colors.pink[400]),
-                SizedBox(width: 10.0),
-                defaultDivider(color: Colors.black12),
-                SizedBox(width: 10.0),
-                defaultDivider(color: Colors.black12),
-                SizedBox(width: 10.0),
-                defaultDivider(color: Colors.black12),
-              ],
-            ),
-            SizedBox(height: 40.0),
-            Form(
-              key: formKey2,
-              child: Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                defaultText(text: 'Country'),
-                                SizedBox(height: 5.0),
-                                defaultTextFormField(
-                                  hint: 'egypt',
-                                  suffix: Icons.keyboard_arrow_down_rounded,
-                                ),
-                              ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  defaultText(
+                    text: 'Register',
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              defaultText(
+                  text: 'Address Details',
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w500),
+              SizedBox(height: 20.0),
+              Row(
+                children: [
+                  defaultDivider(),
+                  SizedBox(width: 10.0),
+                  defaultDivider(color: Colors.black12),
+                  SizedBox(width: 10.0),
+                  defaultDivider(color: Colors.black12),
+                  SizedBox(width: 10.0),
+                  defaultDivider(color: Colors.black12),
+                ],
+              ),
+              SizedBox(height: 40.0),
+              Form(
+                key: formKey2,
+                child: Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  defaultText(
+                                      text: 'Country',
+                                      fontWeight: FontWeight.w500),
+                                  SizedBox(height: 5.0),
+                                  defaultTextFormField(
+                                    hint: 'egypt',
+                                    hintColor: Colors.black,
+                                    suffix: Icons.keyboard_arrow_down_rounded,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 10.0),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                defaultText(text: 'City'),
-                                SizedBox(height: 10.0),
-                                defaultTextFormField(
-                                    hint: 'cairo',
-                                    suffix: Icons.keyboard_arrow_down_rounded),
-                              ],
+                            SizedBox(width: 10.0),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  defaultText(
+                                      text: 'City',
+                                      fontWeight: FontWeight.w500),
+                                  SizedBox(height: 10.0),
+                                  defaultTextFormField(
+                                      hint: 'cairo',
+                                      hintColor: Colors.black,
+                                      suffix:
+                                          Icons.keyboard_arrow_down_rounded),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10.0),
-                      defaultText(text: 'State'),
-                      SizedBox(height: 10.0),
-                      defaultTextFormField(
-                          hint: 'egypt',
-                          suffix: Icons.keyboard_arrow_down_rounded),
-                      SizedBox(height: 10.0),
-                      defaultText(text: 'Street'),
-                      SizedBox(height: 10.0),
-                      defaultTextFormField(
-                          hint: '4987 Cameron Road', type: TextInputType.name),
-                      SizedBox(height: 20.0),
-                      Row(
-                        children: [
-                          Expanded(
-                              child:
-                                  defaultTextFormField(hint: 'building No.')),
-                          SizedBox(width: 5.0),
-                          Expanded(
-                              child: defaultTextFormField(hint: 'floor No.')),
-                          SizedBox(width: 5.0),
-                          Expanded(
-                              child:
-                                  defaultTextFormField(hint: 'building No.')),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                        SizedBox(height: 10.0),
+                        defaultText(text: 'State', fontWeight: FontWeight.w500),
+                        SizedBox(height: 10.0),
+                        defaultTextFormField(
+                            hint: 'egypt',
+                            hintColor: Colors.black,
+                            suffix: Icons.keyboard_arrow_down_rounded),
+                        SizedBox(height: 10.0),
+                        defaultText(
+                            text: 'Street', fontWeight: FontWeight.w500),
+                        SizedBox(height: 10.0),
+                        defaultTextFormField(
+                            hint: '4987 Cameron Road',
+                            hintColor: Colors.black,
+                            type: TextInputType.name),
+                        SizedBox(height: 20.0),
+                        Row(
+                          children: [
+                            Expanded(
+                                child: defaultTextFormField(
+                              hint: 'building No.',
+                            )),
+                            SizedBox(width: 10.0),
+                            Expanded(
+                                child: defaultTextFormField(hint: 'floor No.')),
+                            SizedBox(width: 10.0),
+                            Expanded(
+                                child:
+                                    defaultTextFormField(hint: 'building No.')),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            defaultButton(
+              defaultButton(
                 onPress: () {
                   if (formKey2.currentState!.validate()) {
                     Navigator.push(
@@ -131,8 +151,9 @@ class AddressDetails extends StatelessWidget {
                     );
                   }
                 },
-                text: 'next'),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

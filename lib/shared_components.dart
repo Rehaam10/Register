@@ -1,26 +1,37 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, deprecated_member_use, unused_element, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 
-Widget defaultDivider({Color? color, double? thickness}) => Expanded(
-      child: Divider(
-        thickness: 4,
-        color: color,
+Widget defaultDivider({Color? color}) => Expanded(
+      child: Container(
+        height: 5,
+        width: 50,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
+          color: color == null
+              ? Colors.pink.withOpacity(0.7)
+              : Colors.grey.withOpacity(0.2),
+        ),
       ),
     );
 
 Widget defaultTextFormField({
   TextInputType type = TextInputType.number,
-  //DropdownButtonHideUnderline? dropDownButtonHideUnderline,
   Function? onSubmit,
-  Color iconColor = Colors.pinkAccent,
   void Function()? onTab,
-  String hint = 'Placeholder',
-  double? hintSize,
+  double? width,
+  Color? iconColor,
+  String? hint,
+  Color? hintColor,
   String? Function(String?)? onValid,
   IconData? suffix,
 }) =>
     TextFormField(
       keyboardType: type,
       onTap: onTab,
+      style: TextStyle(
+        color: Colors.black,
+      ),
       validator: (value) {
         if (value!.isEmpty) {
           return 'invalid value';
@@ -31,49 +42,47 @@ Widget defaultTextFormField({
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: TextStyle(
-          fontSize: hintSize,
+          color: hintColor ?? Colors.grey,
+          fontSize: 15.0,
+          fontWeight: FontWeight.w400,
         ),
         border: OutlineInputBorder(),
         suffixIcon: Icon(
           suffix,
-          color: iconColor,
+          color: iconColor ?? Colors.grey,
         ),
       ),
     );
 
 Widget defaultText({
-  String text = 'National ID',
-  double fontSize = 18,
+  String? text,
+  double fontSize = 15,
+  FontWeight? fontWeight,
 }) =>
     Text(
-      text,
+      text!,
+      textAlign: TextAlign.center,
       style: TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: fontWeight,
         color: Colors.black,
         fontSize: fontSize,
       ),
     );
 
-// elevatedButton
-
 Widget defaultButton({
   double minWidth = 400,
   bool isUpperCase = true,
   required void Function() onPress,
-  required String text,
+  String text = 'Next',
 }) =>
     FlatButton(
       minWidth: minWidth,
       height: 40.0,
-      color: Colors.pink[400],
-      shape: const RoundedRectangleBorder(
+      textColor: Colors.white,
+      color: Colors.pink.withOpacity(0.7),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
       onPressed: onPress,
-      child: Text(
-        isUpperCase ? text.toUpperCase() : text,
-        style: const TextStyle(
-          color: Colors.white,
-        ),
-      ),
+      child: Text(text),
     );
