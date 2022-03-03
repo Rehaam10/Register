@@ -87,7 +87,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                             alignment: Alignment.bottomRight,
                             children: [
                               CircleAvatar(
-                                backgroundColor: Colors.grey.withOpacity(0.7),
+                                backgroundColor: Colors.grey.withOpacity(0.3),
                                 radius: 60.0,
                                 backgroundImage: profileImage == null
                                     ? null
